@@ -1,7 +1,7 @@
-<form (submit)="onSubmit(username.value)">
+<form (submit)="onSubmit(searchField.value)">
   <div class="form-group">
-    <label for="username">Give it a try</label>
-    <input type="text" class="form-control" id="username" placeholder="Github username..." #username>
+    <label for="searchField">Give it a try</label>
+    <input type="text" class="form-control" id="searchField" [placeholder]="placeholder || ''" #searchField>
   </div>
   <input type="submit" value="Search" class="btn btn-success"/>
 </form>
