@@ -13,5 +13,4 @@ import {UserSearchResource} from './resources/user-search.resource';
   providers: [UserSearchResource]
 })
 export class SearchModule {
-
 }

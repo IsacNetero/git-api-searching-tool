@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {UserSearchResource} from "../resources/user-search.resource";
 
 @Component({
   selector: 'app-search',
@@ -7,10 +8,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userSearchResource: UserSearchResource) {
+  }
 
   ngOnInit() {
+
   }
+
   onSearch(username: string) {
   }
 
