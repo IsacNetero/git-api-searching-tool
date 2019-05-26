@@ -1,16 +1,17 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {JsonUserSearchResult} from './json-user-search-result';
+import {JsonSearchResult} from './json-search-result';
 
 @Injectable()
 export class UserSearchResource {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
-  fetchUsersWithUsername(username: string): Observable<JsonUserSearchResult> {
+  fetchUsersWithUsername(username: string): Observable<JsonSearchResult> {
 
     const encodedUserName = encodeURI(username);
-    return this.httpClient.get('https://api.github.com/search/users?q=' + encodedUserName);
+    return this.httpClient.get<JsonSearchResult>('https://api.github.com/search/users?q=' + encodedUserName);
   }
 }

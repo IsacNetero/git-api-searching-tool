@@ -1,5 +1,4 @@
-export interface JsonUserSearchResult {
-
+export interface JsonSearchResult {
   total_count: number;
   items: {
 
