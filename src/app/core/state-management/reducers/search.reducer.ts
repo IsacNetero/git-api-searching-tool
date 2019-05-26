@@ -9,7 +9,7 @@ export function searchReducer(state = initialGlobalState, action: SearchAction):
 
     case  SearchActionType.SAVE_LAST_SEARCHED_VALUE :
 
-      return {...state, searchState: {...state.searchState, lastSearchedUser: action.payload}};
+      return {...state, searchState: {...state.searchState, lastSearchedUser: action.payload as string}};
 
       case SearchActionType.SAVE_LAST_FETCHED_USERS:
 

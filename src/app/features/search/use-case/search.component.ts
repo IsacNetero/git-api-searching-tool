@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UserSearchService} from '../services/user-search.service';
+import {Store} from '@ngrx/store';
+import {GlobalState} from '../../../core/state-management/state/global-state';
+import {SaveLastSearchedValue, SearchUsers} from '../../../core/state-management/actions/search.action';
 
 @Component({
   selector: 'app-search',
@@ -8,15 +10,20 @@ import {UserSearchService} from '../services/user-search.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private userSearchService: UserSearchService) {
+  constructor(private store: Store<GlobalState>) {
   }
 
   ngOnInit() {
-
+    /*
+    this.store.select(searchValueSelector).subscribe(data => console.log(data));
+    this.store.select(totalResultCountSelector).subscribe(data => console.log(data));
+*/
   }
 
   onSearch(username: string) {
-    this.userSearchService.findUsersWithUsername(username).subscribe(data => console.log(data));
+    this.store.dispatch(new SaveLastSearchedValue(username));
+    this.store.dispatch(new SearchUsers(username));
+
   }
 
 }
