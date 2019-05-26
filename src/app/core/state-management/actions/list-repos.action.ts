@@ -1,5 +1,6 @@
 import {Action} from '@ngrx/store';
 import {Repo} from '../../../features/list-repos/domain/Repo';
+import {User} from '../../../features/search/domain/user';
 
 export enum ListReposActionType {
     SAVE_LAST_SEARCHED_USER= '[LIST REPOS] Save last searched user',
@@ -10,7 +11,7 @@ export enum ListReposActionType {
 export class SaveLastSearchedUser implements Action {
 
   type =  ListReposActionType.SAVE_LAST_SEARCHED_USER;
-  constructor(public payload: string) {}
+  constructor(public payload: User) {}
 }
 
 export class SaveLastFetchedRepos implements Action {

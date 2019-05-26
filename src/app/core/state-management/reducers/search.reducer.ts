@@ -2,7 +2,6 @@ import {GlobalState, initialGlobalState} from '../state/global-state';
 import {SearchAction, SearchActionType} from '../actions/search.action';
 import {UserSearchResult} from '../../../features/search/domain/user-search-result';
 
-
 export function searchReducer(state = initialGlobalState, action: SearchAction): GlobalState {
 
   switch (action.type) {
