@@ -1,7 +1,7 @@
 <div>
   <span *ngIf="isExpanded; else notExpanded">
     <button (click)="toggle(); " class="btn btn-info mr-3">Hide</button>
-    <a href="link">{{link}}</a>
+    <a href="link" target="_blank">{{link}}</a>
   </span>
   <ng-template #notExpanded>
     <button class="btn btn-success" (click)="toggle()">Link</button>

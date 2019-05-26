@@ -7,16 +7,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchModule } from './features/search/search.module';
 import { ListReposModule } from './features/list-repos/list-repos.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
     SearchModule,
     ListReposModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -11,8 +11,6 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSearch(value: string){
-
-  }
+  onSearch(username: string) {}
 
 }
