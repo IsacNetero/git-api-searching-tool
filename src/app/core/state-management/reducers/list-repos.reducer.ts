@@ -1,5 +1,7 @@
 import {GlobalState, initialGlobalState} from '../state/global-state';
 import {ListReposAction, ListReposActionType} from '../actions/list-repos.action';
+import {Repo} from '../../../features/list-repos/domain/Repo';
+import {User} from '../../../features/search/domain/user';
 
 export function listReposReducer(state = initialGlobalState, action: ListReposAction): GlobalState {
 
@@ -11,7 +13,7 @@ export function listReposReducer(state = initialGlobalState, action: ListReposAc
         ...state,
         listReposState: {
           ...state.listReposState,
-          lastSearchedUser: {...action.payload}
+          lastSearchedUser: {...action.payload as User}
         }
       };
 
@@ -20,7 +22,7 @@ export function listReposReducer(state = initialGlobalState, action: ListReposAc
         ...state,
         listReposState : {
           ...state.listReposState,
-          repos : [...action.payload]
+          repos : [...action.payload as Repo[]]
         }
       };
     default :
