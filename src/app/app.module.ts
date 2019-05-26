@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchModule } from './search/search.module';
+import { SearchModule } from './features/search/search.module';
 
 @NgModule({
   declarations: [
