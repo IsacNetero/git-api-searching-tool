@@ -6,6 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchModule } from './features/search/search.module';
+import { ListReposModule } from './features/list-repos/list-repos.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SearchModule } from './features/search/search.module';
     BrowserModule,
     AppRoutingModule,
     SearchModule,
+    ListReposModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
