@@ -12,7 +12,7 @@ export class SearchEffect {
   }
 
   @Effect()
-  searchUserEffect = this.actions$.pipe(
+  searchUsersEffect = this.actions$.pipe(
     ofType(SearchActionType.SEARCH_USERS),
     switchMap((action: SearchUsers) => {
       return this.userSearchService.findUsersWithUsername(action.payload)

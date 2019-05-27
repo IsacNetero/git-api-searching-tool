@@ -23,12 +23,12 @@ export class ReposSearchService {
 
           return result.map(jsonRepo => {
               return {
-                full_name: jsonRepo.full_name,
+                fullName: jsonRepo.full_name,
                 description: jsonRepo.description,
-                created_at: jsonRepo.created_at,
-                updated_at: jsonRepo.updated_at,
-                clone_url: jsonRepo.clone_url,
-                html_url: jsonRepo.html_url
+                createdAt: jsonRepo.created_at,
+                updatedAt: jsonRepo.updated_at,
+                cloneUrl: jsonRepo.clone_url,
+                htmlUrl: jsonRepo.html_url
               };
             }
           );

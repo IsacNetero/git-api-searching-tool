@@ -9,6 +9,7 @@ import {StoreModule} from '@ngrx/store';
 import {searchReducer} from '../../core/state-management/reducers/search.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {SearchEffect} from '../../core/state-management/effects/search.effect';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
 
@@ -17,7 +18,8 @@ import {SearchEffect} from '../../core/state-management/effects/search.effect';
     RouterModule,
     SharedModule,
     StoreModule.forFeature('search', searchReducer),
-    EffectsModule.forFeature([SearchEffect])
+    EffectsModule.forFeature([SearchEffect]),
+    CommonModule
   ],
   providers: [UserSearchResource]
 })

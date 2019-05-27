@@ -1,11 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search-field',
   templateUrl: './search-field.component.html',
   styleUrls: ['./search-field.component.scss']
 })
-export class SearchFieldComponent implements OnInit {
+export class SearchFieldComponent {
 
   @Output('onSearch')
   eventEmitter = new EventEmitter<string>();
@@ -13,8 +13,6 @@ export class SearchFieldComponent implements OnInit {
   @Input()
   placeholder: string;
 
-  ngOnInit() {
-  }
   onSubmit(value: string){
     this.eventEmitter.emit(value);
     return false;

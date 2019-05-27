@@ -6,6 +6,7 @@ export interface GlobalState {
   listReposState: ListReposState;
   searchState: SearchState;
 }
+
 const searchInitialState: SearchState = {
 
   lastSearchedUser: '',
@@ -24,6 +25,6 @@ const listReposInitialState: ListReposState = {
 };
 
 export const initialGlobalState: GlobalState = {
-  searchState: searchInitialState,
+  searchState : searchInitialState,
   listReposState: listReposInitialState
 };

@@ -3,12 +3,17 @@
     <app-search-field [placeholder]="'Github username...'" (onSearch)="onSearch($event)"></app-search-field>
   </div>
   <hr/>
-  <div class="row mt-3">
-    <div class="col-3">
-      <app-user-card [username]="'John Doe'"></app-user-card>
+
+  <div>
+    <h3 *ngIf="(totalCount$ | async) as totalCount">
+      {{totalCount}} results has been found
+    </h3>
+
+    <div class="row mt-3" *ngIf="(users$ | async) as users">
+      <div class="col-4 p-2" *ngFor="let user of users">
+        <app-user-card [avatarUrl]="user.avatarUrl" [username]="user.login"
+                       (onListRepos)="onListRepos($event)"></app-user-card>
+      </div>
     </div>
-
-
   </div>
-
 </div>

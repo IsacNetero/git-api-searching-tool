@@ -2,6 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {GlobalState} from '../../../core/state-management/state/global-state';
 import {SaveLastSearchedValue, SearchUsers} from '../../../core/state-management/actions/search.action';
+import {
+  searchValueSelector,
+  totalResultCountSelector,
+  usersSelector
+} from '../../../core/state-management/selectors/search.selector';
+import {User} from '../domain/user';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
+import {SaveLastSearchedUser} from '../../../core/state-management/actions/list-repos.action';
 
 @Component({
   selector: 'app-search',
@@ -10,20 +19,38 @@ import {SaveLastSearchedValue, SearchUsers} from '../../../core/state-management
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private store: Store<GlobalState>) {
+  users$: Observable<User[]>;
+  lastSearchedValue$: Observable<string>;
+  totalCount$: Observable<number>;
+
+  constructor(private store: Store<GlobalState>, private router: Router) {
   }
 
   ngOnInit() {
-    /*
-    this.store.select(searchValueSelector).subscribe(data => console.log(data));
-    this.store.select(totalResultCountSelector).subscribe(data => console.log(data));
-*/
+
+    this.users$ = this.store.select(usersSelector);
+    this.lastSearchedValue$ = this.store.select(searchValueSelector);
+    this.totalCount$ = this.store.select(totalResultCountSelector);
   }
 
   onSearch(username: string) {
     this.store.dispatch(new SaveLastSearchedValue(username));
     this.store.dispatch(new SearchUsers(username));
+  }
 
+  onListRepos(username: string) {
+
+    this.router.navigateByUrl('/' + username + '/repos').then(() => {
+
+      this.users$.subscribe(users => {
+        const user = users.find(userP => userP.login === username);
+        if (user) {
+
+          this.store.dispatch(new SaveLastSearchedUser(user));
+        }
+      });
+
+    });
   }
 
 }

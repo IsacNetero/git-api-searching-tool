@@ -1,3 +1,16 @@
-<div>
-  <app-repo-item [repoName]="'Test'" [repoLink]="'google.com'"></app-repo-item>
+<div class="container">
+
+  <div class="header">
+    <ng-container *ngIf="(currentUser$ | async) as currentUser">
+      <app-avatar [avatarUrl]="currentUser.avatarUrl" [username]="currentUser.login"></app-avatar>
+    </ng-container>
+  </div>
+
+  <div class="body">
+    <ng-container *ngIf="(repos$ | async) as repos">
+      <div *ngFor="let repo of repos" class="mt-2">
+        <app-repo-item [repoName]="repo.fullName" [repoLink]="repo.htmlUrl"></app-repo-item>
+      </div>
+    </ng-container>
+  </div>
 </div>
