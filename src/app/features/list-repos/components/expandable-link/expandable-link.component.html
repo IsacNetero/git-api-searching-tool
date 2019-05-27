@@ -1,6 +1,6 @@
 <div>
   <div *ngIf="isExpanded; else notExpanded" class="text-right">
-    <a href="link" target="_blank">{{link}}</a>
+    <a [href]="link" target="_blank" class="alert-link">{{link}}</a>
     <button (click)="toggle(); " class="btn btn-info ml-3">Hide</button>
   </div>
   <ng-template #notExpanded >

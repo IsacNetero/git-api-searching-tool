@@ -1,16 +1,29 @@
 <div class="container">
-  <div>
-    <app-search-field [placeholder]="'Github username...'" (onSearch)="onSearch($event)"></app-search-field>
+
+  <div class="logo text-center">
+    <img src="/assets/images/coding-game.png">
   </div>
+
+  <div class="search-panel">
+    <app-search-field [placeholder]="'Github username...'"
+                      (onSearch)="onSearch($event)"
+                      [value]="lastSearchedValue$ | async">
+    </app-search-field>
+  </div>
+
   <hr/>
 
-  <div>
-    <h3 *ngIf="(totalCount$ | async) as totalCount">
-      {{totalCount}} results has been found
+  <div class="body">
+    <h3 *ngIf="(totalCount$ | async) as totalCount; else noResult">
+      {{totalCount}} results have been found
     </h3>
 
+    <ng-template #noResult>
+        <h3>No result for the moment, Try searching</h3>
+    </ng-template>
+
     <div class="row mt-3" *ngIf="(users$ | async) as users">
-      <div class="col-4 p-2" *ngFor="let user of users">
+      <div class="col-md-4 col-lg-3 p-2" *ngFor="let user of users">
         <app-user-card [avatarUrl]="user.avatarUrl" [username]="user.login"
                        (onListRepos)="onListRepos($event)"></app-user-card>
       </div>

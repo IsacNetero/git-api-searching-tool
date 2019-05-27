@@ -1,5 +1,9 @@
 <div class="container">
 
+  <div>
+    <a [routerLink]="'/'" class="alert-link text-success"><< Back to search page</a>
+  </div>
+
   <div class="header">
     <ng-container *ngIf="(currentUser$ | async) as currentUser">
       <app-avatar [avatarUrl]="currentUser.avatarUrl" [username]="currentUser.login"></app-avatar>

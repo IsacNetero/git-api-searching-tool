@@ -10,7 +10,6 @@ import {
 import {User} from '../domain/user';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
-import {SaveLastSearchedUser} from '../../../core/state-management/actions/list-repos.action';
 
 @Component({
   selector: 'app-search',
@@ -40,17 +39,7 @@ export class SearchComponent implements OnInit {
 
   onListRepos(username: string) {
 
-    this.router.navigateByUrl('/' + username + '/repos').then(() => {
-
-      this.users$.subscribe(users => {
-        const user = users.find(userP => userP.login === username);
-        if (user) {
-
-          this.store.dispatch(new SaveLastSearchedUser(user));
-        }
-      });
-
-    });
+    this.router.navigateByUrl('/' + username + '/repos');
   }
 
 }

@@ -9,12 +9,14 @@ import {EffectsModule} from '@ngrx/effects';
 import {listReposReducer} from '../../core/state-management/reducers/list-repos.reducer';
 import {ListReposEffect} from '../../core/state-management/effects/list-repos.effect';
 import {SharedModule} from '../../shared/shared.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [ListReposComponent, RepoItemComponent, ExpandableLinkComponent],
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
     StoreModule.forFeature('list-repos', listReposReducer),
     EffectsModule.forFeature([ListReposEffect])],
   providers: [ReposSearchResource]

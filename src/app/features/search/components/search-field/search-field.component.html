@@ -1,7 +1,11 @@
 <form (submit)="onSubmit(searchField.value)">
   <div class="form-group">
     <label for="searchField">Give it a try</label>
-    <input type="text" class="form-control" id="searchField" [placeholder]="placeholder || ''" #searchField>
+    <input type="text" class="form-control"
+           id="searchField"
+           [placeholder]="placeholder || ''"
+           [value]="value"
+           #searchField>
   </div>
   <input type="submit" value="Search" class="btn btn-success"/>
 </form>

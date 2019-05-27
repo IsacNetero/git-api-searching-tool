@@ -13,6 +13,9 @@ export class SearchFieldComponent {
   @Input()
   placeholder: string;
 
+  @Input()
+  value: string;
+  
   onSubmit(value: string){
     this.eventEmitter.emit(value);
     return false;
